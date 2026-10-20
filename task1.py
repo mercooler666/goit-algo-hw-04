@@ -1,5 +1,5 @@
 from pathlib import Path
-import re
+
 
 def total_salary(path):
     file_path = Path(path)
@@ -21,11 +21,11 @@ def total_salary(path):
                 except ValueError:
                     print(f"Пропущено некоректний рядок: {cleaned_line}")
                     continue
-        average = total // count if count > 0 else 0.0
+
+        average = total / count if count > 0 else 0.0
 
         print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
         return total, average
-
 
     except FileNotFoundError:
         print(f"File {file_path} not found")
@@ -35,5 +35,5 @@ def total_salary(path):
         return None, None
 
 
-
-total_salary("task1.txt")
+total, average = total_salary("task1.txt")
+# Загальна сума заробітної плати: 6000, Середня заробітна плата: 2000.0
